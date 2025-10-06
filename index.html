@@ -240,7 +240,7 @@
   <img class="frame-bl animate__animated animate__fadeInLeft animate__slower" src="https://satumomen.com/themes/art-blue-java/bl-2.webp" alt="frame">
   <img class="frame-br animate__animated animate__fadeInRight animate__slower" src="https://satumomen.com/themes/art-blue-java/br-2.webp" alt="frame">
 </div>
-                                            <div class="d-flex justify-content-center align-items-center" style="height:100%;width:100%;background-size:cover;z-index:2;position:relative;"><div class="w-100 pt-5"> <div class="text-center animate__animated animate__zoomIn animate__slower mt-5 mb-3" style="line-height:1;"><div class="editable mb-2" style="font-size:14.4px;">The Wedding Of</div><div class="color-accent editable font-latin" style="font-size:80px;">Fajar</div><div class="editable font-latin mb-2" style="font-size:30px;">&amp;</div><div class="color-accent editable mb-2 font-latin" style="font-size:80px;">Resti</div></div><div class="text-center mx-auto" style="max-width:280px;"><div class="text-center mb-3 py-3 px-2 animate__animated animate__zoomIn animate__slower" style="background-color:rgb(225 219 203 / 67%);border:2px solid var(--inv-border);border-radius:.5rem;"><div class="editable mb-1 animate__animated animate__fadeInUp animate__slower" style="font-size:14px;">Kepada Yth;<br />Bapak/Ibu/Saudara/i</div> <div id="guestNameSlot" class="editable color-accent h5 font-weight-bold mb-1 animate__animated animate__fadeInUp animate__slower" style="font-size:16px;">Nama Tamu</div></div><button class="btn-open-invitation btn btn-primary rounded-pill mb-4 animate__animated animate__fadeInUp animate__slow" style="font-size:14px;">Open Invitation</button></div></div></div>
+                                            <div class="d-flex justify-content-center align-items-center" style="height:100%;width:100%;background-size:cover;z-index:2;position:relative;"><div class="w-100 pt-5"> <div class="text-center animate__animated animate__zoomIn animate__slower mt-5 mb-3" style="line-height:1;"><div class="editable mb-2" style="font-size:14.4px;">The Wedding Of</div><div class="color-accent editable font-latin" style="font-size:80px;">Fajar</div><div class="editable font-latin mb-2" style="font-size:30px;">&amp;</div><div class="color-accent editable mb-2 font-latin" style="font-size:80px;">Resti</div></div><div class="text-center mx-auto" style="max-width:280px;"><div class="text-center mb-3 py-3 px-2 animate__animated animate__zoomIn animate__slower" style="background-color:rgb(225 219 203 / 67%);border:2px solid var(--inv-border);border-radius:.5rem;"><div class="editable mb-1 animate__animated animate__fadeInUp animate__slower" style="font-size:14px;">Kepada Yth;<br />Bapak/Ibu/Saudara/i</div> <div id="guestNameSlot" class="editable color-accent h5 font-weight-bold mb-1 animate__animated animate__fadeInUp animate__slower" style="font-size:16px;"></div></div><button class="btn-open-invitation btn btn-primary rounded-pill mb-4 animate__animated animate__fadeInUp animate__slow" style="font-size:14px;">Open Invitation</button></div></div></div>
                                         </div>
                                     </li>
                                                                         <li class="satumomen_slide">
@@ -1076,6 +1076,29 @@
     <script type="3b017184cb0012b2b64b3498-text/javascript">
         
     </script>
+<script>
+  // Fungsi ini akan berjalan setelah halaman selesai dimuat
+  window.onload = function() {
+    // 1. Membuat objek untuk mengelola parameter URL
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // 2. Mengambil nilai dari parameter 'to'
+    // Jika URL adalah ...?to=Budi, maka guestName akan berisi "Budi"
+    const guestName = urlParams.get('to');
+
+    // 3. Memeriksa apakah parameter 'to' ada dan tidak kosong
+    if (guestName) {
+      // 4. Mencari elemen HTML dengan id 'guestNameSlot'
+      const guestNameElement = document.getElementById('guestNameSlot');
+
+      if (guestNameElement) {
+        // 5. Mengisi elemen tersebut dengan nama tamu
+        // decodeURIComponent digunakan agar nama dengan spasi (contoh: Budi%20Setiawan) tampil dengan benar
+        guestNameElement.textContent = decodeURIComponent(guestName.replace(/\+/g, ' '));
+      }
+    }
+  };
+</script>
 <script src="assets/js/rocket-loader.min.js" data-cf-settings="3b017184cb0012b2b64b3498-|49" defer></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"bb94421b81454f668eb9cf5cf8e9f0cb","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 
