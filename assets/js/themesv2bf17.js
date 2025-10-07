@@ -662,7 +662,7 @@ var slides = document.querySelectorAll(".satumomen_slide");
 var menus = document.querySelectorAll(".satumomen_menu_item");
 var smMenu = document.getElementById("smMenu");
 var menuContainer = document.querySelector(".satumomen_menu_list");
-var menuWidth = menus.length < 5 ? smMenu.offsetWidth / menus.length : smMenu.offsetWidth / 5;
+var menuWidth = menus.length < 6 ? smMenu.offsetWidth / menus.length : smMenu.offsetWidth / 6;
 var currentSlide = 0;
 var resetAllSlide = function resetAllSlide() {
   Array.from(slides).forEach(function (slide) {

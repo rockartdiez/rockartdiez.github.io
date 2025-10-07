@@ -1998,6 +1998,9 @@
 .ph-fill.ph-highlighter-circle:before {
   content: "\eb91";
 }
+.ph-fill.ph-image:before {
+  content: "\eb92";
+}
 .ph-fill.ph-hoodie:before {
   content: "\eb92";
 }
