@@ -3771,3 +3771,33 @@
 .ph-fill.ph-youtube-logo:before {
   content: "\eddf";
 }
+
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  padding: 0 15px;
+  margin-top: 20px;
+}
+
+.gallery-item {
+  width: calc(50% - 8px);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  cursor: pointer;
+  height: 200px; /* Added fixed height */
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%; /* Changed from auto to 100% */
+  object-fit: cover; /* Changed from contain to cover */
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
