@@ -105,6 +105,9 @@ var initCoreInvitation = function initCoreInvitation() {
     document.dispatchEvent(new Event("showModalEvent"));
   };
   var closeModal = function closeModal(target) {
+    if (document.activeElement) {
+      document.activeElement.blur();
+    }
     body.classList.remove('modal-open');
     modalOverlay.classList.remove('show');
     modalOverlay.style = 'display: none;';

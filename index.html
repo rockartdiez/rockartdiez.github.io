@@ -184,6 +184,8 @@
         transform: scale(1.1);
     }
   </style>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js" defer></script>
 </head>
 
 <body>
@@ -1108,7 +1110,7 @@
                               waktu susah, dan mengumpulkan kalian berdua dalam kebaikan"<br /><br />[HR. Abu Daud]
                             </div>
                             <div class="editable mb-4 animate__animated animate__fadeInUp animate__slower">Tekan tombol dibawah ini untuk mengirim ucapan dan konfirmasi kehadiran</div>
-                                            <button class="btn-rsvp btn btn-primary rounded-pill mb-4 animate__animated animate__fadeInUp animate__slow" style="font-size:20px;">Konfirmasi &amp; Kirim Ucapan</button>
+                                            <button class="btn-rsvp btn btn-primary rounded-pill mb-4 animate__animated animate__fadeInUp animate__slow" style="font-size:20px;">Kirim Ucapan</button>
                           </div>
                         </div>
                       </div>
@@ -1488,9 +1490,7 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content p-4" style="height:100%">
           <!-- rsvp form -->
-          <rsvp-component
-            :lang="{&quot;invitation_code&quot;:&quot;Kode Undangan&quot;,&quot;validate_code&quot;:&quot;Validasi Kode Undangan&quot;,&quot;name&quot;:&quot;Nama&quot;,&quot;group_name&quot;:&quot;Nama Grup&quot;,&quot;phone&quot;:&quot;No Hp \/ WhatsApp&quot;,&quot;attendance&quot;:&quot;Kehadiran?&quot;,&quot;yes&quot;:&quot;Hadir&quot;,&quot;no&quot;:&quot;Tidak Hadir&quot;,&quot;guest&quot;:&quot;Orang&quot;,&quot;guest_count&quot;:&quot;Jumlah Tamu&quot;,&quot;comment&quot;:&quot;Komentar atau Ucapan&quot;,&quot;send&quot;:&quot;Kirim&quot;,&quot;update&quot;:&quot;Kirim&quot;,&quot;captcha_placeholder&quot;:&quot;Ketik Text&quot;}"
-            :invitation_id="580321" name="Nama Tamu" code="#" :replace="false" overlay="1"></rsvp-component>
+
           <!-- rsvp form -->
           <button onclick="if (!window.__cfRLUnblockHandlers) return false; closeModal(rsvpModal)" type="button"
             class="btn btn-close" data-cf-modified-3b017184cb0012b2b64b3498-=""><svg xmlns="http://www.w3.org/2000/svg"
@@ -1615,6 +1615,121 @@
         loader.style.display = 'none';
       }
     }, 2000);
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCh80n-1ADnoXaH6y2UJ7PtkehjPlEn5OA",
+        authDomain: "fajaresti-fad37.firebaseapp.com",
+        projectId: "fajaresti-fad37",
+        storageBucket: "fajaresti-fad37.firebasestorage.app",
+        messagingSenderId: "83263240153",
+        appId: "1:83263240153:web:fb0f0bf5a725dfc433cbc8",
+        measurementId: "G-MP3449CK1P"
+      };
+
+      // Initialize Firebase
+      if (firebase.apps.length === 0) {
+        firebase.initializeApp(firebaseConfig);
+      }
+      const db = firebase.firestore();
+
+      const rsvpModal = document.getElementById('rsvpModal');
+      const rsvpComponent = rsvpModal.querySelector('rsvp-component');
+
+      if (rsvpComponent) {
+        rsvpComponent.style.display = 'none';
+      }
+
+      const formHtml = `
+        <div id="newRsvpForm" class="p-4">
+          <h5 class="text-center mb-4">Ucapkan Sesuatu</h5>
+          <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Nama</label>
+              <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Ucapan</label>
+              <textarea class="form-control" id="message" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Konfirmasi Kehadiran</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="attendance" id="present" value="1" checked>
+                <label class="form-check-label" for="present">
+                  Hadir
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="attendance" id="not-present" value="0">
+                <label class="form-check-label" for="not-present">
+                  Tidak Hadir
+                </label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Kirim</button>
+          </form>
+        </div>
+        <div id="wishes-container" style="height: 480px; overflow-y: auto; position: relative; z-index: 3;"></div>
+      `;
+
+      if (!document.getElementById('newRsvpForm')) {
+        rsvpModal.querySelector('.modal-content').insertAdjacentHTML('beforeend', formHtml);
+      }
+
+      const newRsvpForm = document.getElementById('newRsvpForm');
+      const form = newRsvpForm.querySelector('form');
+      const submitButton = form.querySelector('button[type="submit"]');
+      form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          submitButton.disabled = true;
+          const name = document.getElementById('name').value;
+          const message = document.getElementById('message').value;
+          const attendance = parseInt(document.querySelector('input[name="attendance"]:checked').value);
+
+          db.collection('messages').add({
+            name: name,
+            message: message,
+            attendance: attendance,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+          })
+          .then(() => {
+            alert('Pesan berhasil terkirim!');
+            form.reset();
+            submitButton.disabled = false;
+          })
+          .catch((error) => {
+            console.error("Error adding document: ", error);
+            alert('Pesan gagal terkirim!');
+            submitButton.disabled = false;
+          });
+        });
+
+      db.collection('messages').orderBy('timestamp', 'desc').onSnapshot((querySnapshot) => {
+        const wishesContainer = document.getElementById('wishes-container');
+        wishesContainer.innerHTML = '';
+        querySnapshot.forEach((doc) => {
+          const message = doc.data();
+          const attendanceBadge = message.attendance === 1 ? '<span class="text-success">✓</span>' : '<span class="text-danger">✗</span>';
+          const messageHtml = `
+            <div class="p-3 mb-3" style="background-color: #f0f0f0; border-radius: 10px;">
+              <p class="mb-1"><strong>${message.name}</strong> ${attendanceBadge}</p>
+              <p class="mb-0">${message.message}</p>
+              <small class="text-muted">${message.timestamp ? message.timestamp.toDate().toLocaleString() : ''}</small>
+            </div>
+          `;
+          wishesContainer.insertAdjacentHTML('beforeend', messageHtml);
+        });
+      });
+
+      const rsvpButton = document.querySelector('.btn-rsvp');
+      rsvpButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        showModal(rsvpModal);
+      });
+    });
   </script>
 </body>
 
