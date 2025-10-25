@@ -1727,6 +1727,14 @@
       const rsvpButton = document.querySelector('.btn-rsvp');
       rsvpButton.addEventListener('click', (e) => {
         e.preventDefault();
+        const urlParams = new URLSearchParams(window.location.search);
+        const guestName = urlParams.get('to');
+        if (guestName) {
+            const nameInput = document.getElementById('name');
+            if (nameInput) {
+                nameInput.value = decodeURIComponent(guestName.replace(/\+/g, ' '));
+            }
+        }
         showModal(rsvpModal);
       });
     });
