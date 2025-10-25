@@ -1,8 +1,0 @@
-RewriteEngine On
-
-# Redirect index.html to root
-RewriteCond %{THE_REQUEST} /index\.html
-RewriteRule ^index\.html$ / [R=301,L]
-
-# Rewrite to/NAMA_TAMU to index.html?to=NAMA_TAMU
-RewriteRule ^to/(.*)$ /index.html?to=$1 [L]
