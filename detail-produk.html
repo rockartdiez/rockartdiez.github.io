@@ -1,0 +1,88 @@
+﻿<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Detail Produk - IPX Sanitari</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand">
+          <span class="brand-mark">IPX</span>
+          <span class="brand-text">Sanitari</span>
+        </a>
+        <nav class="nav" aria-label="Navigasi utama">
+          <button class="nav-toggle" aria-label="Buka menu" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+          <ul class="nav-list">
+            <li><a href="produk.html">Produk</a></li>
+            <li><a href="index.html#solusi">Solusi</a></li>
+            <li><a href="index.html#proyek">Proyek</a></li>
+            <li><a href="tentang.html">Tentang</a></li>
+            <li><a href="index.html#kontak" class="btn btn-primary">Hubungi Kami</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="sub-hero">
+        <div class="container">
+          <a href="produk.html" style="color:var(--muted); text-decoration:none; display:flex; align-items:center; gap:8px; margin-bottom:16px;">
+            &larr; Kembali ke Katalog
+          </a>
+        </div>
+      </section>
+
+      <section class="product-detail" style="padding:40px 0;">
+        <div class="container grid" style="grid-template-columns: 1fr 1fr; gap:40px;">
+           <!-- Content injected by app.js -->
+           <div style="grid-column: 1/-1; text-align: center; color: var(--muted);">Memuat detail produk...</div>
+        </div>
+      </section>
+
+      <section class="related" style="padding:40px 0; background:#f7fbfb; border-top:1px solid var(--line);">
+        <div class="container">
+           <div class="section-head" style="margin-top:0;">
+             <h2>Produk Lainnya</h2>
+           </div>
+           <div class="grid grid-3">
+              <!-- Content injected by app.js -->
+           </div>
+        </div>
+      </section>
+
+      <section class="cta">
+        <div class="container cta-inner">
+          <div class="cta-copy">
+            <h3>Butuh spesifikasi khusus?</h3>
+            <p>Tim teknis kami siap membantu kebutuhan proyek Anda.</p>
+          </div>
+          <a class="btn btn-primary btn-lg" href="index.html#kontak">Konsultasi Gratis</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-bottom">
+        <div>&copy; 2025 IPX Sanitari</div>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><span class="i-instagram"></span></a>
+          <a href="#" aria-label="WhatsApp"><span class="i-whatsapp"></span></a>
+          <a href="#" aria-label="LinkedIn"><span class="i-linkedin"></span></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="data/products.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

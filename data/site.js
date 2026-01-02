@@ -1,0 +1,30 @@
+﻿window.SITE_DATA = {
+  categories: [
+    { icon: 'i-bowl', title: 'Sanitary Ware', desc: 'Toilet, wastafel, shower, aksesoris kamar mandi.' },
+    { icon: 'i-pipe', title: 'Pipa & Fitting', desc: 'PVC, PPR, HDPE, elbow, tee, reducer.' },
+    { icon: 'i-valve', title: 'Valve & Aksesori', desc: 'Gate, ball, check valve, meter air.' },
+    { icon: 'i-drain', title: 'Drainage', desc: 'Floor drain, trap, grease trap, manhole.' },
+    { icon: 'i-filter', title: 'Filtrasi', desc: 'Housing filter, cartridge, UV sterilizer.' },
+    { icon: 'i-tools', title: 'Instalasi', desc: 'Seal, hanger, lem, alat tekan & potong.' }
+  ],
+  benefits: [
+    { icon: 'i-quality', title: 'Kualitas Teruji', desc: 'Produk bersertifikat dan tahan lama untuk penggunaan intensif.' },
+    { icon: 'i-safety', title: 'Higienis & Aman', desc: 'Material food-grade dan aman untuk air bersih.' },
+    { icon: 'i-fast', title: 'Instalasi Cepat', desc: 'Sistem fitting yang memudahkan proses pemasangan.' },
+    { icon: 'i-support', title: 'Dukungan Teknis', desc: 'Tim ahli siap membantu desain dan perhitungan.' }
+  ],
+  applications: [
+    { media: 'am-1', title: 'Hunian' },
+    { media: 'am-2', title: 'Apartemen' },
+    { media: 'am-3', title: 'Hotel' },
+    { media: 'am-4', title: 'Rumah Sakit' }
+  ],
+  steps: [
+    { index: '01', title: 'Konsultasi', desc: 'Pemetaan kebutuhan dan budget proyek.' },
+    { index: '02', title: 'Desain', desc: 'Rekomendasi produk dan rancangan instalasi.' },
+    { index: '03', title: 'Pengadaan', desc: 'Ketersediaan stok dan pengiriman cepat.' },
+    { index: '04', title: 'Instalasi', desc: 'Koordinasi teknis dengan tim lapangan.' },
+    { index: '05', title: 'After-Sales', desc: 'Garansi dan dukungan purna jual.' }
+  ],
+  featuredIds: ['toilet-rimless', 'pipa-ppr', 'ball-valve']
+};

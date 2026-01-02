@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Katalog Produk  IPX Sanitari</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand">
+          <span class="brand-mark">IPX</span>
+          <span class="brand-text">Sanitari</span>
+        </a>
+        <nav class="nav" aria-label="Navigasi utama">
+          <button class="nav-toggle" aria-label="Buka menu" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+          <ul class="nav-list">
+            <li><a href="produk.html" aria-current="page">Produk</a></li>
+            <li><a href="index.html#solusi">Solusi</a></li>
+            <li><a href="index.html#proyek">Proyek</a></li>
+            <li><a href="tentang.html">Tentang</a></li>
+            <li><a href="index.html#kontak" class="btn btn-primary">Hubungi Kami</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="sub-hero">
+        <div class="container">
+          <h1>Katalog Produk</h1>
+          <p>Pilih kategori untuk menelusuri produk sanitari sesuai kebutuhan Anda.</p>
+          <div class="filters">
+            <button class="chip active" data-cat="all">Semua</button>
+            <button class="chip" data-cat="ware">Sanitary Ware</button>
+            <button class="chip" data-cat="pipe">Pipa & Fitting</button>
+            <button class="chip" data-cat="valve">Valve</button>
+            <button class="chip" data-cat="drain">Drainage</button>
+            <button class="chip" data-cat="filter">Filtrasi</button>
+            <button class="chip" data-cat="install">Instalasi</button>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container grid grid-3" id="grid-produk">
+          <!-- Products will be rendered here by app.js -->
+          <div style="grid-column: 1/-1; text-align: center; color: var(--muted);">Memuat produk...</div>
+        </div>
+      </section>
+
+      <section class="cta">
+        <div class="container cta-inner">
+          <div class="cta-copy">
+            <h3>Butuh daftar harga dan stok terbaru?</h3>
+            <p>Hubungi tim kami untuk katalog lengkap dan penawaran terbaik.</p>
+          </div>
+          <a class="btn btn-primary btn-lg" href="index.html#kontak">Hubungi Kami</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-bottom">
+        <div> 2025 IPX Sanitari</div>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><span class="i-instagram"></span></a>
+          <a href="#" aria-label="WhatsApp"><span class="i-whatsapp"></span></a>
+          <a href="#" aria-label="LinkedIn"><span class="i-linkedin"></span></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="data/products.js"></script>
+    <script src="app.js"></script>
+  </body>
+  </html>
